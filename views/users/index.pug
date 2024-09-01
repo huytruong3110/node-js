@@ -1,0 +1,23 @@
+form(action="users/search")
+    input(name="name", type="text", placeholder="Nhập tên cần tìm kiếm")
+    input(name="email", type="text", placeholder="Nhập email cần tìm kiếm")
+    input(type="submit")
+.users  
+    if users.length > 0
+        table 
+            thead 
+                tr 
+                    th Name 
+                    th Email 
+                    th Action
+            tbody  
+                each user in users 
+                    tr 
+                        td= user.name 
+                        td= user.email
+                        td
+                            a(href="/users/" + user.id) View
+    else 
+        p No result
+
+a(href="/users/create") Create User
